@@ -40,6 +40,16 @@ public class CityComponent extends JComponent implements KeyListener {
 	boolean shootingdown = false;
 	boolean shootingleft = false;
 	boolean shootingright = false;
+	boolean enabled = false;
+	boolean hasdied = false;
+	boolean isgettinghit = false;
+	boolean hasjohncenaspawned = false;
+	boolean hasplayedjohncenatheme = false;
+	boolean hasdonedevelopmentenvironmentmessage = false;
+	boolean hasurapirateplayed = false;
+	boolean haswonreal = false;
+	boolean hasstartedplayingmusic = false;
+	boolean haswon = false;
 	ArrayList<Integer> bulletxlist = new ArrayList();
 	ArrayList<Integer> bulletylist = new ArrayList();
 	ArrayList<Integer> directionlist = new ArrayList();
@@ -63,26 +73,25 @@ public class CityComponent extends JComponent implements KeyListener {
 	ArrayList<Integer> glitchvelxlist = new ArrayList();
 	ArrayList<Integer> glitchvelylist = new ArrayList();
 	ArrayList<Integer> glitchlifetimelist = new ArrayList();
+	int hiddenbossx = -9001;
+	int hiddenbossy = -9001;
+	int hiddenbosstimer = 150;
+	int hiddenbosstptimer = 150;
+	int backgroundchangetimer = 7;
+	int randomint = 1;
+	int hiddenbosslife = 1;
+	int deathtimer = 60;
 	int playerx = 100;
 	int playery = 100;
-	double velocityx = 0.0;
-	double velocityy = 0.0;
 	int keypressed = -1337;
 	int housespawntimer = 100;
 	int howmanyhouseshavespawned = 0;
 	int houseskilled = 0;
 	int livesleft = 3;
 	int guncooldown = 0;
-	boolean enabled = false;
-	boolean hasdied = false;
-	boolean isgettinghit = false;
-	boolean hasjohncenaspawned = false;
-	boolean hasplayedjohncenatheme = false;
-	boolean hasdonedevelopmentenvironmentmessage = false;
-	boolean hasurapirateplayed = false;
+	double velocityx = 0.0;
+	double velocityy = 0.0;	
 	String assetslocation = "";
-	boolean hasstartedplayingmusic = false;
-	boolean haswon = false;
 	InputStream in;
 	AudioStream timeupsound;
 	Sound urapirate = null;
@@ -91,15 +100,7 @@ public class CityComponent extends JComponent implements KeyListener {
 	Sound gaza = null;
 	Sound gazabackup = null;
 	Sound bosstheme = null;
-	int hiddenbossx = -9001;
-	int hiddenbossy = -9001;
-	int hiddenbosstimer = 150;
-	int hiddenbosstptimer = 150;
-	int backgroundchangetimer = 7;
-	int randomint = 1;
-	boolean haswonreal = false;
-	int hiddenbosslife = 1;
-	int deathtimer = 60;
+
 	
 	@Override
 	public void paintComponent(Graphics g) {
