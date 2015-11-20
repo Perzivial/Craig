@@ -90,10 +90,7 @@ public class CityComponent extends JComponent implements KeyListener {
 	int livesleft = 3;
 	int guncooldown = 0;
 	double velocityx = 0.0;
-	double velocityy = 0.0;	
-	String assetslocation = "";
-	InputStream in;
-	AudioStream timeupsound;
+	double velocityy = 0.0;
 	Sound urapirate = null;
 	Sound supernova = null;
 	Sound supernovabackup = null;
@@ -101,7 +98,6 @@ public class CityComponent extends JComponent implements KeyListener {
 	Sound gazabackup = null;
 	Sound bosstheme = null;
 
-	
 	@Override
 	public void paintComponent(Graphics g) {
 		Movinghouse movinghouse;
@@ -157,7 +153,7 @@ public class CityComponent extends JComponent implements KeyListener {
 		if (this.hiddenbosstimer <= 0) {
 			img = loadImage("hiddenbossbackground.png");
 		}
-		if(this.haswonreal){
+		if (this.haswonreal) {
 			img = loadImage("winreal.png");
 		}
 
@@ -172,7 +168,8 @@ public class CityComponent extends JComponent implements KeyListener {
 			}
 			if (this.haswon) {
 				img = ImageIO.read(new File(String.valueOf("src/city/city/win.png")));
-			}if(this.haswonreal)
+			}
+			if (this.haswonreal)
 				img = ImageIO.read(new File(String.valueOf("src/city/city/winreal.png")));
 			if (hiddenbosstimer <= 0) {
 				if (randomint == 0)
@@ -229,8 +226,8 @@ public class CityComponent extends JComponent implements KeyListener {
 
 		this.isgettinghit = false;
 		if (!(this.hasdied || this.haswon || this.haswonreal)) {
-			if((int) velocityx == 0 && (int) velocityy == 0 && haswon == false){
-				deathtimer --;
+			if ((int) velocityx == 0 && (int) velocityy == 0 && haswon == false) {
+				deathtimer--;
 				try {
 					Sound playerhit = new Sound("src/city/city/wum.wav");
 					playerhit.play();
@@ -242,12 +239,12 @@ public class CityComponent extends JComponent implements KeyListener {
 						System.out.print("SHIT");
 					}
 				}
-				if(deathtimer <= 0)
+				if (deathtimer <= 0)
 					this.hasdied = true;
-			}else{
+			} else {
 				deathtimer = 60;
 			}
-			
+
 			for (int i = 0; i < this.bulletxlist.size(); ++i) {
 
 				Rectangle bulrect = new Rectangle(bulletxlist.get(i), bulletylist.get(i), 20, 20);
@@ -257,7 +254,7 @@ public class CityComponent extends JComponent implements KeyListener {
 					this.bulletxlist.remove(i);
 					this.bulletylist.remove(i);
 					this.directionlist.remove(i);
-					
+
 					try {
 						Sound playerhit = new Sound("src/city/city/hiddenbosshit.wav");
 						playerhit.play();
@@ -269,7 +266,7 @@ public class CityComponent extends JComponent implements KeyListener {
 							System.out.print("SHIT");
 						}
 					}
-					if(hiddenbosslife <= 0)
+					if (hiddenbosslife <= 0)
 						haswonreal = true;
 				}
 			}
@@ -573,10 +570,10 @@ public class CityComponent extends JComponent implements KeyListener {
 			if (this.velocityy != 0.0) {
 				this.playery = (int) ((double) this.playery + this.velocityy);
 			}
-			if((int) velocityx == 0 && (int) velocityy == 0)
+			if ((int) velocityx == 0 && (int) velocityy == 0)
 				g.setColor(Color.green);
 			else
-			g.setColor(Color.cyan);
+				g.setColor(Color.cyan);
 			g.fillRect(this.playerx, this.playery, 50, 50);
 			g.setColor(Color.black);
 			this.playerx = this.gotoothersidex(this.playerx);

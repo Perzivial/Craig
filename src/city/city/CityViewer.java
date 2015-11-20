@@ -84,25 +84,20 @@ public class CityViewer extends JFrame {
 		timer = new Timer(16, new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				if (component.hasdied|| component.hasjohncenaspawned|| component.hasurapirateplayed) {
+				if (component.hasdied || component.hasjohncenaspawned || component.hasurapirateplayed) {
 					if (hadplayedjohncenatheme == false) {
-						if (component.assetslocation == "")
-							//supernova.stop();
-							//supernovabackup.stop();
 						hadplayedjohncenatheme = true;
-
 					}
-					if(component.hasdied == true){
-						
+					if (component.hasdied == true) {
+
 					}
 
 				}
-				
 
 				component.revalidate();
 
 				component.repaint();
-				
+
 			}
 		});
 	}
